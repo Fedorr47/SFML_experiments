@@ -11,6 +11,12 @@
     <Filter Include="Private">
       <UniqueIdentifier>{4b1098ca-de2a-4e25-8b45-69d3920df625}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Private\Game">
+      <UniqueIdentifier>{7f69c3f5-0e5e-4e28-8a50-d872d1623874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Game">
+      <UniqueIdentifier>{3cdf63b4-21a6-44dd-9a02-81d9265fe1e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -19,34 +25,34 @@
     <ClCompile Include="Main.cpp">
       <Filter>Private</Filter>
     </ClCompile>
-    <ClCompile Include="Private\EventManager.cpp">
-      <Filter>Private</Filter>
+    <ClCompile Include="Private\Game\EventManager.cpp">
+      <Filter>Private\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Application.cpp">
-      <Filter>Private</Filter>
+    <ClCompile Include="Private\Game\Game.cpp">
+      <Filter>Private\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Window.cpp">
-      <Filter>Private</Filter>
+    <ClCompile Include="Private\Game\Player.cpp">
+      <Filter>Private\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Game\Customlogic.cpp">
-      <Filter>Private</Filter>
+    <ClCompile Include="Private\Game\Window.cpp">
+      <Filter>Private\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Public</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Application.h">
-      <Filter>Public</Filter>
+    <ClInclude Include="Public\Game\EventManager.h">
+      <Filter>Public\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Public\EventManager.h">
-      <Filter>Public</Filter>
+    <ClInclude Include="Public\Game\Game.h">
+      <Filter>Public\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Window.h">
-      <Filter>Public</Filter>
+    <ClInclude Include="Public\Game\Player.h">
+      <Filter>Public\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Game\CustomLogic.h">
-      <Filter>Public</Filter>
+    <ClInclude Include="Public\Game\Window.h">
+      <Filter>Public\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

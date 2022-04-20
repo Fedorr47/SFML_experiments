@@ -80,7 +80,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(ProjectDir)libs;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(ProjectDir)Public;$(IncludePath)</IncludePath>
+    <IncludePath>G:\VS_projects\SMFL_experiments\SFML\Public\Game;$(ProjectDir)Public;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -166,20 +166,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Private\Application.cpp" />
-    <ClCompile Include="Private\EventManager.cpp" />
-    <ClCompile Include="Private\Game\Customlogic.cpp" />
-    <ClCompile Include="Private\Window.cpp" />
+    <ClCompile Include="Private\Game\EventManager.cpp" />
+    <ClCompile Include="Private\Game\Game.cpp" />
+    <ClCompile Include="Private\Game\Player.cpp" />
+    <ClCompile Include="Private\Game\Window.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Public\Application.h" />
-    <ClInclude Include="Public\EventManager.h" />
-    <ClInclude Include="Public\Game\CustomLogic.h" />
-    <ClInclude Include="Public\Window.h" />
+    <ClInclude Include="Public\Game\EventManager.h" />
+    <ClInclude Include="Public\Game\Game.h" />
+    <ClInclude Include="Public\Game\Player.h" />
+    <ClInclude Include="Public\Game\Window.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,14 +2,14 @@
 
 #include <iostream>
 
-#include "Application.h"
+#include "Game.h"
 
 int main() 
 {
 	try
 	{
-		Application App("Template");
-		App.Run();		
+		Game game("Template");
+		game.Run();
 	}
 	catch (const std::exception& ex)
 	{

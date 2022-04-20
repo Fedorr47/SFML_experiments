@@ -21,6 +21,12 @@ Window* Window::GetInstance(
 	return mWindowInstance;
 }
 
+void Window::Close()
+{
+	mWindow.close();
+	mIsDone = true;
+}
+
 std::shared_ptr<class EventManager> Window::GetEventManager()
 {
 	return mEvenetManager;
@@ -33,7 +39,6 @@ Window::Window(const std::string& Title, const sf::Vector2u& Size, sf::Uint32 St
 	mIsDone(false),
 	mIsFocused(true)
 {
-	mEvenetManager = std::move(EventManager::Create());
 	Create();
 }
 
@@ -50,18 +55,6 @@ void Window::Create()
 		Style = sf::Style::Fullscreen;
 	}
 	mWindow.create(sf::VideoMode(mSize.x, mSize.y, 32), mTitle, Style);
-}
-
-void Window::Update()
-{
-	sf::Event event;
-
-	while (mWindow.pollEvent(event))
-	{
-		mEvenetManager->HandleEvent(event);
-	}
-
-	mEvenetManager->Update();
 }
 
 void Window::BeginDraw()

@@ -18,17 +18,18 @@ public:
 	~Window();
 	
 	void Create();
-	void Update();
 
 	void BeginDraw();
 	void EndDraw();
+
+	template <class ...Args>
+	void Draw(Args&&... args)
+	{
+		mWindow.draw(std::forward<Args>(args)...);
+	}
 	
 	bool IsDone() const { return mIsDone; };
-	void Close(EventDetails* Details = nullptr) 
-	{ 
-		mWindow.close();
-		mIsDone = true; 
-	}
+	void Close();
 	sf::Vector2u GetSize() { return mSize; }
 	sf::RenderWindow& GetRenderWindow() { return mWindow; }
 	std::shared_ptr<class EventManager> GetEventManager();
