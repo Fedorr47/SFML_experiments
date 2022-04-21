@@ -55,4 +55,9 @@
       <Filter>Public\Game</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\Game\EventManager.inl">
+      <Filter>Public\Game</Filter>
+    </None>
+  </ItemGroup>
 </Project>

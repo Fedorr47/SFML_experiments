@@ -4,7 +4,6 @@
 
 class Action
 {
-	friend class ActionTarget;
 	friend class hash;
 	sf::Event mEvent;
 	int mType;
@@ -43,21 +42,46 @@ struct std::hash<Action>
 	}
 };
 
+template <class Key = int>
+class ActionMap
+{
+	ActionMap(const ActionMap<Key>& Other) = delete;
+	ActionMap<Key>& operator=(const ActionMap<Key>& Other) = delete;
+
+	std::unordered_map<Key, Action> mActionMap;
+
+public:
+	ActionMap() = default;
+
+	void AddToMap(const Key& InKey, const Action& InAction);
+	const Action& Get(const Key& InKey) const;
+	const bool Contains(const Key& InKey) const;
+};
+
+template <class Key>
 class ActionTarget
 {
+	ActionTarget(const ActionTarget<Key>& Other) = delete;
+	ActionTarget<Key>& operator=(const ActionTarget<Key>& Other) = delete;
+
 public:
 	using FuncType = std::function<void(const sf::Event&)>;
-
-	ActionTarget();
+	
+	ActionTarget(const ActionMap<Key>& InActionMap) :
+		mActionMap{ InActionMap }
+	{}
 
 	bool ProcessEvents(const sf::Event& Event) const;
 	void ProcessEvents() const;
 
-	void Bind(const Action& InAction, const FuncType& Callback);
-	void UnBind(const Action& InAction);
+	void Bind(const Key& InKey, const FuncType& Callback);
+	void UnBind(const Key& InKey);
 
 private:
-	std::unordered_map<Action, FuncType> mEventsRealTime;
-	std::unordered_map<Action, FuncType> mEventsPool;
+	std::unordered_map<Key, FuncType> mEventsRealTime;
+	std::unordered_map<Key, FuncType> mEventsPool;
+
+	const ActionMap<Key>& mActionMap;
 };
 
+#include "EventManager.inl"

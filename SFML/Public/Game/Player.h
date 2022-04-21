@@ -2,13 +2,23 @@
 
 #include "EventManager.h"
 
-class Player : public sf::Drawable, public ActionTarget
+class Player : public sf::Drawable, public ActionTarget<int>
 {
 	sf::CircleShape mShape;
 	sf::Vector2f mVelocity{0.0f, 0.0f};
 
-	bool mIsMoving{false};
+	enum Direction
+	{
+		Forward,
+		ForwardBack,
+		NONE
+	};
+
+	float mIsMoving{false};
 	float mRotation{0.0f};
+	Direction mDirection{ Direction::NONE };
+
+	static ActionMap<int> MapPlayerInputs;
 	
 	Player(const Player& Other) = delete;
 	Player& operator()(const Player& Other) = delete;
@@ -33,6 +43,15 @@ public:
 	const bool IsMoving() const { return mIsMoving; }
 
 	void ProcessEvents();
+
+	enum PlayerInputs
+	{
+		Up,
+		Down,
+		Left,
+		Right
+	};
+	static void SetDefaultPlayerInputs();
 
 	void SetVelocity(sf::Vector2f InVelocity) { mVelocity = InVelocity; }
 	const sf::Vector2f GetVelocity() const { return mVelocity; }
