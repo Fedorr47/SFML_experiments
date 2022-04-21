@@ -11,7 +11,7 @@ Player::Player() :
 	mRotation{ 0.0f }
 {
 	mShape.setFillColor(sf::Color::Blue);
-	mShape.setOrigin(mShape.getLocalBounds().width / 2, mShape.getLocalBounds().height / 2);
+	mShape.setOrigin(mShape.getLocalBounds().width/2, mShape.getLocalBounds().height / 2);
 
 	Bind(Action(sf::Keyboard::Up), [this](const sf::Event&)
 	{

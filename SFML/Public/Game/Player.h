@@ -4,7 +4,7 @@
 
 class Player : public sf::Drawable, public ActionTarget
 {
-	sf::RectangleShape mShape;
+	sf::CircleShape mShape;
 	sf::Vector2f mVelocity{0.0f, 0.0f};
 
 	bool mIsMoving{false};
