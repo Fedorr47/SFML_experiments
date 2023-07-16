@@ -8,7 +8,7 @@ const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 Game::Game(std::string TitleName) :
 	mTitleName{ std::move(TitleName) }
 {
-	mWindow = Window::GetInstance("SpaceWar");
+	mWindow = Window::GetInstance();
 	mPlayerPtr = std::make_unique<Player>();
 }
 

@@ -14,7 +14,7 @@ class Window
 
 public:
 
-	static Window* GetInstance(const std::string& Title = "Window", const sf::Vector2u& Size = sf::Vector2u(640,480), sf::Uint32 Style = 0);
+	static Window* GetInstance(const std::string Title = "Window", const sf::Vector2u Size = sf::Vector2u(640,480), sf::Uint32 Style = 0);
 	~Window();
 	
 	void Create();
@@ -36,7 +36,7 @@ public:
 
 protected:
 
-	Window(const std::string& Title, const sf::Vector2u& Size, sf::Uint32 Style);
+	Window(const std::string Title, const sf::Vector2u Size, sf::Uint32 Style);
 
 	static Window* mWindowInstance;
 };

@@ -10,8 +10,8 @@
 Window* Window::mWindowInstance = nullptr;
 
 Window* Window::GetInstance(
-	const std::string& Title /*= "Window"*/, 
-	const sf::Vector2u& Size /*= sf::Vector2u(640,480)*/, 
+	const std::string Title /*= "Window"*/, 
+	const sf::Vector2u Size /*= sf::Vector2u(640,480)*/, 
 	sf::Uint32 Style /* = sf::Style::Default*/)
 {
 	if (mWindowInstance == nullptr)
@@ -32,7 +32,7 @@ std::shared_ptr<class EventManager> Window::GetEventManager()
 	return mEvenetManager;
 }
 
-Window::Window(const std::string& Title, const sf::Vector2u& Size, sf::Uint32 Style) :
+Window::Window(const std::string Title, const sf::Vector2u Size, sf::Uint32 Style) :
 	mTitle(Title),
 	mSize(Size),
 	mIsFullScreen(Style == sf::Style::Default),
@@ -54,7 +54,7 @@ void Window::Create()
 	{
 		Style = sf::Style::Fullscreen;
 	}
-	mWindow.create(sf::VideoMode(mSize.x, mSize.y, 32), mTitle, Style);
+	mWindow.create(sf::VideoMode(mSize.x, mSize.y, 32), "Window", Style);
 }
 
 void Window::BeginDraw()
